@@ -16,30 +16,39 @@ int main()
   cin >> t;
   while (t--)
   {
-    int n, m, k, H;
-    cin >> n >> m >> k >> H;
-
-    vector<int> heights(n);
+    int n, s, x, sum = 0;
+    cin >> n >> s >> x;
+    int a[n];
     for (int i = 0; i < n; i++)
     {
-      cin >> heights[i];
+      cin >> a[i];
+      sum += a[i];
     }
+    bool flag = false;
 
-    int count = 0, c = 0, h = 0;
-    for (int i = 0; i < n; i++)
+    if (sum > s)
     {
-      int h = abs(H - heights[i]);
-      for (int j = 1; j <= m; j++)
+      cout << "NO" << endl;
+    }
+    else
+    {
+      while (sum <= s)
       {
-        int c = i * j;
+        if(sum==s)
+        {
+         flag=true;
+        }
+        sum = sum + x;
       }
-      if ((c * k) == h)
+      if(flag)
       {
-        count++;
+       cout<<"YES"<< endl;
+      }
+      else
+      {
+        cout << "NO" << endl;
       }
     }
-    cout << count << endl;
   }
-
   return 0;
 }
