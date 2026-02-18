@@ -34,15 +34,18 @@ int main()
     {
       while (sum <= s)
       {
+        sum = sum + x;
         if(sum==s)
         {
          flag=true;
         }
-        sum = sum + x;
       }
-      if(flag)
+
+      // cout << sum << endl;
+      if (sum == s || sum - x == s)
       {
-       cout<<"YES"<< endl;
+        cout << "YES" << endl;
+        // cout << sum << endl;
       }
       else
       {
