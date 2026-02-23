@@ -7,7 +7,7 @@ using namespace std;
 template <typename T>
 using pbds = tree<T, null_type, less<T>, rb_tree_tag,
                   tree_order_statistics_node_update>;
-
+ 
 int main()
 {
   ios::sync_with_stdio(false);
@@ -25,33 +25,24 @@ int main()
       sum += a[i];
     }
     bool flag = false;
-
-    if (sum > s)
-    {
-      cout << "NO" << endl;
-    }
-    else
-    {
+ 
       while (sum <= s)
       {
-        sum = sum + x;
         if(sum==s)
         {
          flag=true;
+         break;
         }
+        sum = sum + x;
       }
-
-      // cout << sum << endl;
-      if (sum == s || sum - x == s)
+      if(flag == true)
       {
-        cout << "YES" << endl;
-        // cout << sum << endl;
+       cout<<"YES"<< endl;
       }
       else
       {
         cout << "NO" << endl;
       }
-    }
   }
   return 0;
 }
